@@ -5,8 +5,53 @@
 //+------------------------------------------------------------------+
 #property copyright "MAD"
 #property link      ""
-#property version   "1.00"
+#property version   "1.0"
 #property strict
+
+
+//Переключалки
+enum selectTF
+{
+   m5,  // м5
+   m15, // м15
+   m30  // м30
+};
+
+enum EnumRiskMode
+  {
+   FixedLot,
+   FixedCurrency,
+  };
+  
+enum EnumPosMode
+  {
+   Reaction, // реакция
+   JustLevel,// наличие
+  };
+  
+enum Levels
+  {
+   gray,   // серый
+   red,    // красный
+   blue,   // синий
+   yellow, // желтый
+   green   // зеленый
+  };
+
+input string ExpertOptions = "Настройка советника"; // -------------------------------------------------
+input string   StartTrade  = "09:00";               // Старт торговли
+input string   EndTrade    = "20:00";               // Конец торговли
+
+selectTF input TFMode      = selectTF:: m15;        // Выбор ТФ старшего диапазона
+
+
+
+//+------------------------------------------------------------------+
+//|                     Объявление переменных                        |
+//+------------------------------------------------------------------+
+double upFractal[], downFractal[];
+
+
 //+------------------------------------------------------------------+
 //| Expert initialization function                                   |
 //+------------------------------------------------------------------+
